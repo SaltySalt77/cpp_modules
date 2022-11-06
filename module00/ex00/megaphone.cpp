@@ -1,13 +1,10 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
-/* 로직 고민
-1. argc 개수 세기
-2. 바꾸고 출력하자 */
 int main(int argc, char *argv[]) {
 	int			i;
 	int			j;
+	std::string	upperCase;
 	std::string	megaphone;
 
 	i = 1;	
@@ -16,15 +13,18 @@ int main(int argc, char *argv[]) {
 		return 0;
 	}
 	while (i < argc) {
-		megaphone = argv[i];
 		j = 0;
-		while (megaphone[j]) {
-			if (megaphone[j] == 2)
-				megaphone.replace(j, 1, megaphone[j] - 32);
+		megaphone.clear();
+		while (argv[i][j]) {
+			if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
+				megaphone.push_back(argv[i][j] - 32);
+			else
+				megaphone.push_back(argv[i][j]);
 			j++;
 		}
-		std::cout << megaphone << std::endl;
+		std::cout << megaphone;
 		i++;
 	}
+	std::cout << std::endl;
 	return 0;
 }
