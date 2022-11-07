@@ -2,10 +2,13 @@
 # define PHONEBOOK_HPP
 
 #include <string>
+#include "Contact.hpp"
 
 class PhoneBook {
+	Contact		contacts[8];
 public :
-	std::string	phoneBook[8];
+	static int	idx;
+	void	addContact()
 
 
 };
