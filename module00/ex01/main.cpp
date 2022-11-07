@@ -9,7 +9,9 @@ int	main() {
 		std::getline(std::cin, buffer);
 		if (buffer == "ADD")
 			phoneBook.addContact();
-		else if (buffer == "EXIT")
+		else if (buffer == "SEARCH")
+			phoneBook.searchContact();
+		else if (buffer == "EXIT" || buffer == "")
 			break ;
 		std::cout << "----------------------------------------------" << std::endl;
 	}
