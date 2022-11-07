@@ -6,15 +6,15 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/06 19:44:27 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/07 18:59:50 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = PhoneBook
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp\
+SRCS = main.cpp Contact.cpp PhoneBook.cpp\
 
 OBJS = $(SRCS:.cpp=.obj)
 
