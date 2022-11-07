@@ -13,8 +13,10 @@ std::string	PhoneBook::getInput(std::string	title) {
 	while (true) {
 		std::cout << title << " : ";
 		std::getline(std::cin, buffer);
-		if (buffer == "")
-			break ;
+		if (std::cin.eof()) {
+			std::cerr << "\nEOF signaled" << std::endl;
+			exit(1);
+		}
 		if (buffer.size())
 			break;
 		std::cerr << "The contact can't have empty fields!" << std::endl;

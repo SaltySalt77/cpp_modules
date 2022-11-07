@@ -7,6 +7,7 @@ int	main() {
 
 	while (true) {
 		std::cout << "Insert Menu" << std::endl;
+		std::cout << "ex. ADD / SEARCH / EXIT" << std::endl;
 		std::getline(std::cin, buffer);
 		if (buffer == "ADD")
 			phoneBook.addContact();
