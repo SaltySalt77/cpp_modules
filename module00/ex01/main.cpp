@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <string>
 
 int	main() {
 	PhoneBook	phoneBook;
@@ -11,7 +12,7 @@ int	main() {
 			phoneBook.addContact();
 		else if (buffer == "SEARCH")
 			phoneBook.searchContact();
-		else if (buffer == "EXIT" || buffer == "")
+		else if (buffer == "EXIT" || std::cin.eof())
 			break ;
 		std::cout << "----------------------------------------------" << std::endl;
 	}

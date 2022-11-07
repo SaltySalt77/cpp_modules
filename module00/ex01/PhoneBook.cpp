@@ -36,9 +36,11 @@ std::string	PhoneBook::getOutput(std::string	content) {
 		fmt_contant.append(content);
 	}
 	else if (len > 10) {
-		fmt_contant = content.substr(0, 9);
+		fmt_contant = content.substr(0, 9); 
 		fmt_contant.push_back('.');
 	}
+	else
+		return content;
 	return fmt_contant;
 }
 
