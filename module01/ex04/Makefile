@@ -6,15 +6,15 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/12 13:07:40 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/12 14:48:31 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Attack
+NAME = Sed
 CC = c++
-CCFLAGS = -Wall -Werror -Wextra -std=c++98
+CCFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp\
+SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.obj)
 
