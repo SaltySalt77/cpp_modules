@@ -6,15 +6,15 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/12 16:13:03 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/12 16:48:54 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Sed
+NAME = Harl
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp \
+SRCS = main.cpp Harl.cpp\
 
 OBJS = $(SRCS:.cpp=.obj)
 
