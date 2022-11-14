@@ -1,7 +1,32 @@
-/* need to do
-	1. OCCF에 맞추어 클래스 선언하기
-	2. ... 고정소수점 부동소수점 공부하고 이해하기
-	3. 선언한 값에 맞추어 클래스 코드 구현하기
-	4. valgrind로 릭 확인하기
-*/
+#include "Fixed.hpp"
 
+
+Fixed::Fixed() {
+	std::cout << "Default constructor called" << std::endl;
+	rawBits = 0;
+}
+
+Fixed::Fixed(const Fixed	&fixed) {
+	std::cout << "Copy constructor called" << std::endl;
+	this->rawBits = fixed.rawBits;
+}
+
+Fixed	&Fixed::operator= (const Fixed	&fixed) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->rawBits = fixed.getRawBits();
+	return *this;
+}
+
+Fixed::~Fixed() {
+	std::cout << "Destructor called" << std::endl;
+}
+
+int	Fixed::getRawBits() const {
+	std::cout << "getRawBits member function called" << std::endl;
+	return this->rawBits;
+}
+
+void	Fixed::setRawBits(int const	raw) {
+	std::cout << "setRawBits member function called" << std::endl;
+	this->rawBits = raw;
+}
