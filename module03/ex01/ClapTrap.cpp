@@ -30,11 +30,11 @@ ClapTrap::~ClapTrap() {
 }
 
 bool	ClapTrap::canAct() {
-	if (energyPoint && hitPoint)
+	if (energyPoint > 0 && hitPoint > 0)
 		return true;
-	else if (!hitPoint)
+	else if (hitPoint <= 0)
 		std::cout << "ClapTrap " << name << " is completely broken.";
-	else if (!energyPoint)
+	else if (energyPoint <= 0)
 		std::cout << "ClapTrap " << name << " has no energy points left.";
 	std::cout << " It stands still and silent, doing nothing." << std::endl;
 	return false;
@@ -48,7 +48,7 @@ void	ClapTrap::attack(const std::string	&target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int	amount) {
-		std::cout << "ClapTrap " << name << " took " << amount << "points of damage" << std::endl;
+		std::cout << name << " took " << amount << "points of damage" << std::endl;
 		hitPoint -= amount;
 		if (hitPoint < 0)
 			hitPoint = 0;
@@ -56,7 +56,7 @@ void	ClapTrap::takeDamage(unsigned int	amount) {
 
 void	ClapTrap::beRepaired(unsigned int	amount) {
 	if (canAct()) {
-		std::cout << "ClapTrap " << name << " is repairing itself for " << amount << "points!" << std::endl;
+		std::cout << name << " is repairing itself for " << amount << "points!" << std::endl;
 		hitPoint += amount;
 		if (hitPoint > 10)
 			hitPoint = 10;
