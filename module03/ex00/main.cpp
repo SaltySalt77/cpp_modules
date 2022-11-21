@@ -3,9 +3,13 @@
 
 int main() {
 	ClapTrap	anonymous;
-	ClapTrap	anonymousCopy = anonymous;
+	ClapTrap	anonymousCopy;
 	ClapTrap	buzz("buzz");
 	ClapTrap	buzzCopy(buzz);
+
+	std::cout << std::endl;
+
+	anonymousCopy = anonymous;
 
 	std::cout << std::endl;
 

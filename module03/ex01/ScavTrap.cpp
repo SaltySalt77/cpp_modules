@@ -9,7 +9,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string	name) : ClapTrap(name) {
+ScavTrap::ScavTrap(std::string	name) : ClapTrap() {
 	this->name = name;
 	std::cout << "Creating ScavTrap named " << name << std::endl;
 	hitPoint = 100;
@@ -40,7 +40,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap named " << name << " disappeared for good" << std::endl;
 }
 
-void	ScavTrap::attack(std::string	target) {
+void	ScavTrap::attack(const std::string	&target) {
 	if (canAct()) {
 		std::cout << "ScavTrap "<< name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 		energyPoint--;
@@ -55,9 +55,11 @@ void	ScavTrap::guardGate() {
 	if (modSwitch) {
 		std::cout << "ScavTrap " << name << " turns off the gate keeper mode" << std::endl;
 		energyPoint--;
+		modSwitch = false;
 	}
 	else {
 		std::cout << "ScavTrap " << name << " is now on gate keeper mode" << std::endl;
 		energyPoint--;
+		modSwitch = true;
 	}
 }

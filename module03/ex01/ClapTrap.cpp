@@ -5,14 +5,14 @@ ClapTrap::ClapTrap() : name("Anonymous") {
 	std::cout << "Generating " << name << " ClapTrap" << std::endl;
 	hitPoint = 10;
 	energyPoint = 10;
-	attackDamage = 10;
+	attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(std::string	name) : name(name) {
 	std::cout << "Generating ClapTrap named "<< name << std::endl;
 	hitPoint = 10;
 	energyPoint = 10;
-	attackDamage = 10;
+	attackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap	&clapTrap) : name(clapTrap.name) {
