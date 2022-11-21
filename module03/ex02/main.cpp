@@ -1,17 +1,21 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main() {
 	ClapTrap	clapTrap("clapTrap");
 	std::cout << std::endl;
-	ScavTrap	anonymous;
+	ScavTrap	scavTrap("scavTrap");
 	std::cout << std::endl;
-	ScavTrap	buzz("buzz");
+	FragTrap	anonymous;
 	std::cout << std::endl;
-	ScavTrap	anonymousCopy(anonymous);
+	FragTrap	anonymousCopy(anonymous);
 	std::cout << std::endl;
-	ScavTrap	buzzCopy;
+	FragTrap	buzz("buzz");
+	std::cout << std::endl;
+	FragTrap	buzzCopy;
+
 	buzzCopy = buzz;
 	std::cout << std::endl;
 
@@ -22,6 +26,8 @@ int main() {
 	std::cout << std::endl;
 	ScavTrap	enemy_2("enemy_2");
 	std::cout << std::endl;
+	FragTrap	enemy_3("enemy_3");
+	std::cout << std::endl;
 
 	std::cout << "=========================================" << std::endl << std::endl;
 	std::cout << "Testing skills" << std::endl << std::endl;
@@ -31,16 +37,17 @@ int main() {
 
 	std::cout << std::endl;
 
-	anonymous.attack("enemy_2");
+	scavTrap.attack("enemy_2");
 	enemy_2.takeDamage(20);
 
 	std::cout << std::endl;
 
-	buzz.guardGate();
+	buzz.attack("enemy_3");
+	enemy_3.takeDamage(30);
 
 	std::cout << std::endl;
 
-	buzz.guardGate();
+	buzz.hiFiveGuys();
 
 	std::cout << std::endl;
 	std::cout << "=========================================" << std::endl << std::endl;

@@ -2,7 +2,7 @@
 #include <iostream>
 
 FragTrap::FragTrap() : ClapTrap() {
-	std::cout << "Creating anonymouse FragTrap." << std::endl;
+	std::cout << "Creating anonymouse FragTrap" << std::endl;
 	hitPoint = 100;
 	energyPoint = 100;
 	attackDamage = 30;
@@ -30,5 +30,14 @@ FragTrap	&FragTrap::operator= (const FragTrap	&fragTrap) {
 	this->hitPoint = fragTrap.hitPoint;
 	this->energyPoint = fragTrap.energyPoint;
 	this->attackDamage = fragTrap.attackDamage;
-	return *this;	
+	return *this;
+}
+
+FragTrap::~FragTrap() {
+	std::cout << "FragTrap named " << name << " disappeared for good" << std::endl;
+}
+
+void	FragTrap::hiFiveGuys() {
+	std::cout << name << " puts it's hand up high in the air" << std::endl;
+	std::cout << "* HIGH FIVE GUYS *" << std::endl;
 }
