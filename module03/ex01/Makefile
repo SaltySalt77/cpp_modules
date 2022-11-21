@@ -6,7 +6,7 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/20 16:18:53 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/21 12:02:11 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = a.out
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp\
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp\
 
 OBJS = $(SRCS:.cpp=.obj)
 

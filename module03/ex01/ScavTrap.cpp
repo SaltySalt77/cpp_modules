@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap() {
+ScavTrap::ScavTrap() : ClapTrap() {
 	name = "Anonymous";
 	std::cout << "Creating Anonymous ScavTrap." << std::endl;
 	hitPoint = 100;
@@ -9,7 +9,7 @@ ScavTrap::ScavTrap() {
 	attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string	name) {
+ScavTrap::ScavTrap(std::string	name) : ClapTrap(name) {
 	this->name = name;
 	std::cout << "Creating ScavTrap named " << name << std::endl;
 	hitPoint = 100;
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(std::string	name) {
 	attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap	&scavTrap) {
+ScavTrap::ScavTrap(const ScavTrap	&scavTrap) : ClapTrap() {
 	this->name = name;
 	std::cout << "Creating copied version of ScavTrap named " << name << std::endl;
 	this->hitPoint = scavTrap.hitPoint;
