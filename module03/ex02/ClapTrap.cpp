@@ -42,7 +42,8 @@ bool	ClapTrap::canAct() {
 
 void	ClapTrap::attack(const std::string	&target) {
 	if (canAct()) {
-		std::cout << "ClapTrap "<< name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+		//std::cout << "ClapTrap "<< name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+		std::cout << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 		energyPoint--;
 	}
 }

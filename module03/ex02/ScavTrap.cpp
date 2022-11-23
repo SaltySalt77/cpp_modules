@@ -42,7 +42,7 @@ ScavTrap::~ScavTrap() {
 
 void	ScavTrap::attack(const std::string	&target) {
 	if (canAct()) {
-		std::cout << "ScavTrap "<< name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+		std::cout << "ScavTrap "<< name << " attacks " << target << ", causing " << attackDamage << " points of damage!!!!!!!!" << std::endl;
 		energyPoint--;
 	}
 }
