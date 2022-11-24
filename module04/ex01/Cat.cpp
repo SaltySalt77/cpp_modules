@@ -11,7 +11,12 @@ Cat::Cat(const Cat	&cat) : Animal() {
 	this->type = cat.type;
 	std::cout << "Creating cat copied version of 🐈" << type << std::endl;
 	this->brain = new Brain;
-	this->brain = cat.brain;
+	for (int i = 0; i < 100; i++) {
+		std::string	tmp = cat.getBrain().getIdea(i);
+		if (!tmp.size())
+			break ;
+		this->brain->addIdea(tmp);
+	}
 }
 
 Cat	&Cat::operator=(const Cat	&cat) {
@@ -20,7 +25,12 @@ Cat	&Cat::operator=(const Cat	&cat) {
 	this->type = cat.type;
 	delete this->brain;
 	this->brain = new Brain;
-	this->brain = cat.brain;
+	for (int i = 0; i < 100; i++) {
+		std::string	tmp = cat.getBrain().getIdea(i);
+		if (!tmp.size())
+			break ;
+		this->brain->addIdea(tmp);
+	}
 	return *this;
 }
 
@@ -31,4 +41,8 @@ Cat::~Cat() {
 
 void	Cat::makeSound() const {
 	std::cout << "🐱 MEEEEEEEEEEOOOOOOOOWWWWW 🐱" << std::endl;
+}
+
+Brain	&Cat::getBrain() const {
+	return *this->brain;
 }

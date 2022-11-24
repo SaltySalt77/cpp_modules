@@ -22,5 +22,13 @@ int main() {
 	for (int i = 0; i < 10; i++) {
 		delete zoo[i];
 	}
+
+	Cat	*cat = new Cat;
+
+	cat->getBrain().addIdea("🐱 The Sound of cat thinking 🐱");
+	Cat catCopy = *cat;
+	cat->getBrain().addIdea("🐱 The Sound of snoozing 🐱");
+
+	std::cout << catCopy.getBrain().getIdea(1) << std::endl;
 	return 0;
 }
