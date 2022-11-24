@@ -1,12 +1,12 @@
 #include "WrongDog.hpp"
 #include <iostream>
 
-WrongDog::WrongDog() {
+WrongDog::WrongDog() : WrongAnimal() {
 	type = "dog";
 	std::cout << "Generating one dog. 🐕" << std::endl;
 }
 
-WrongDog::WrongDog(const WrongDog	&wrongDog) {
+WrongDog::WrongDog(const WrongDog	&wrongDog) : WrongAnimal() {
 	this->type = wrongDog.type;
 	std::cout << "Creating dog copied version of 🐕" << type << std::endl;
 }
