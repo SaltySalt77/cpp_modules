@@ -1,27 +1,27 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
-Cat::Cat() : Animal() {
+WrongCat::WrongCat() : WrongAnimal() {
 	type = "cat";
-	std::cout << "Generating one cat." << std::endl;
+	std::cout << "Generating one cat. 🐈" << std::endl;
 }
 
-Cat::Cat(const Cat	&cat) : Animal() {
-	this->type = cat.type;
-	std::cout << "Creating cat copied version of " << type << std::endl;
+WrongCat::WrongCat(const WrongCat	&wrongCat) : WrongAnimal() {
+	this->type = wrongCat.type;
+	std::cout << "Creating cat copied version of 🐈" << type << std::endl;
 }
 
-Cat	&Cat::operator=(const Cat	&cat) {
-	if (this == &cat)
+WrongCat	&WrongCat::operator=(const WrongCat	&wrongCat) {
+	if (this == &wrongCat)
 		return *this;
-	this->type = cat.type;
+	this->type = wrongCat.type;
 	return *this;
 }
 
-Cat::~Cat() {
-	std::cout << "Cat is disappearing for good" << std::endl;
+WrongCat::~WrongCat() {
+	std::cout << "WrongCat is disappearing for good. 🐈" << std::endl;
 }
 
-void	Cat::makeSound() const {
+void	WrongCat::makeSound() const {
 	std::cout << "🐱 MEEEEEEEEEEOOOOOOOOWWWWW 🐱" << std::endl;
 }

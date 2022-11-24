@@ -6,7 +6,7 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/23 19:07:52 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/24 14:39:11 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = a.out
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp \
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp\
+		WrongAnimal.cpp WrongCat.cpp WrongDog.cpp \
 
 OBJS = $(SRCS:.cpp=.obj)
 

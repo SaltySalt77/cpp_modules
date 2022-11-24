@@ -1,15 +1,15 @@
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	WRONGDOG_HPP
+# define WRONGDOG_HPP
 
 #include <string>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal {
+class WrongDog : public WrongAnimal {
 public:
-	Dog();
-	Dog(const Dog	&dog);
-	Dog	&operator=(const Dog	&dog);
-	~Dog();
+	WrongDog();
+	WrongDog(const WrongDog	&wrongDog);
+	WrongDog	&operator=(const WrongDog	&wrongDog);
+	~WrongDog();
 	void	makeSound() const;
 };
 

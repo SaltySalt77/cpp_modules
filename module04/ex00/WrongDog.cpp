@@ -1,27 +1,27 @@
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 #include <iostream>
 
-Dog::Dog() {
+WrongDog::WrongDog() {
 	type = "dog";
-	std::cout << "Generating one dog." << std::endl;
+	std::cout << "Generating one dog. 🐕" << std::endl;
 }
 
-Dog::Dog(const Dog	&dog) {
-	this->type = dog.type;
-	std::cout << "Creating dog copied version of " << type << std::endl;
+WrongDog::WrongDog(const WrongDog	&wrongDog) {
+	this->type = wrongDog.type;
+	std::cout << "Creating dog copied version of 🐕" << type << std::endl;
 }
 
-Dog	&Dog::operator=(const Dog	&dog) {
-	if (this == &dog)
+WrongDog	&WrongDog::operator=(const WrongDog	&wrongDog) {
+	if (this == &wrongDog)
 		return *this;
-	this->type = dog.type;
+	this->type = wrongDog.type;
 	return *this;
 }
 
-Dog::~Dog() {
-	std::cout << "Dog is disappearing for good" << std::endl;
+WrongDog::~WrongDog() {
+	std::cout << "WrongDog is disappearing for good. 🐕" << std::endl;
 }
 
-void	Dog::makeSound() const {
+void	WrongDog::makeSound() const {
 	std::cout << "🐶 WOOF WOOF 🐶" << std::endl;
 }

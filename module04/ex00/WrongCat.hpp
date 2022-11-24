@@ -1,15 +1,15 @@
-#ifndef	CAT_HPP
-# define CAT_HPP
+#ifndef	WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 #include <string>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal {
+class WrongCat : public WrongAnimal {
 public:
-	Cat();
-	Cat(const Cat	&cat);
-	Cat	&operator=(const Cat	&cat);
-	~Cat();
+	WrongCat();
+	WrongCat(const WrongCat	&cat);
+	WrongCat	&operator=(const WrongCat	&wrongCat);
+	~WrongCat();
 	void	makeSound() const;
 };
 

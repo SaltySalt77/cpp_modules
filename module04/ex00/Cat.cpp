@@ -3,12 +3,12 @@
 
 Cat::Cat() : Animal() {
 	type = "cat";
-	std::cout << "Generating one cat." << std::endl;
+	std::cout << "Generating one cat. 🐈" << std::endl;
 }
 
 Cat::Cat(const Cat	&cat) : Animal() {
 	this->type = cat.type;
-	std::cout << "Creating cat copied version of " << type << std::endl;
+	std::cout << "Creating cat copied version of 🐈" << type << std::endl;
 }
 
 Cat	&Cat::operator=(const Cat	&cat) {
@@ -19,7 +19,7 @@ Cat	&Cat::operator=(const Cat	&cat) {
 }
 
 Cat::~Cat() {
-	std::cout << "Cat is disappearing for good" << std::endl;
+	std::cout << "Cat is disappearing for good. 🐈" << std::endl;
 }
 
 void	Cat::makeSound() const {

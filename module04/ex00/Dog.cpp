@@ -3,12 +3,12 @@
 
 Dog::Dog() {
 	type = "dog";
-	std::cout << "Generating one dog." << std::endl;
+	std::cout << "Generating one dog. 🐕" << std::endl;
 }
 
 Dog::Dog(const Dog	&dog) {
 	this->type = dog.type;
-	std::cout << "Creating dog copied version of " << type << std::endl;
+	std::cout << "Creating dog copied version of 🐕" << type << std::endl;
 }
 
 Dog	&Dog::operator=(const Dog	&dog) {
@@ -19,7 +19,7 @@ Dog	&Dog::operator=(const Dog	&dog) {
 }
 
 Dog::~Dog() {
-	std::cout << "Dog is disappearing for good" << std::endl;
+	std::cout << "Dog is disappearing for good. 🐕" << std::endl;
 }
 
 void	Dog::makeSound() const {
