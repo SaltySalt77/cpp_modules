@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog() {
+Dog::Dog() : Animal() {
 	type = "dog";
 	std::cout << "Generating one dog. 🐕" << std::endl;
 }
 
-Dog::Dog(const Dog	&dog) {
+Dog::Dog(const Dog	&dog) : Animal() {
 	this->type = dog.type;
 	std::cout << "Creating dog copied version of 🐕" << type << std::endl;
 }
