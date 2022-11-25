@@ -45,6 +45,8 @@ int main() {
 	catIdea = "🐱 The Sound of snoozing 🐱";
 	cat->getBrain().addIdea("🐱 The Sound of snoozing 🐱");
 
+	std::cout << std::endl;
+
 	for (int i = 0; i < 100; i++) {
 		std::string	tmp = catCopy.getBrain().getIdea(i);
 		if (!tmp.size())
@@ -52,7 +54,10 @@ int main() {
 		std::cout << tmp << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	delete cat;
+
 	std::cout << std::endl;
 
 	Dog	*dog = new Dog;
@@ -69,12 +74,16 @@ int main() {
 	dogIdea = "🐶 The Sound of snoozing 🐶";
 	dog->getBrain().addIdea("🐶 The Sound of snoozing 🐶");
 
+	std::cout << std::endl;
+
 	for (int i = 0; i < 100; i++) {
 		std::string	tmp = dogCopy.getBrain().getIdea(i);
 		if (!tmp.size())
 			break ;
 		std::cout << tmp << std::endl;
 	}
+
+	std::cout << std::endl;
 
 	delete dog;
 

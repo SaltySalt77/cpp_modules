@@ -17,7 +17,6 @@ Dog::Dog(const Dog	&dog) : Animal() {
 			break ;
 		this->brain->addIdea(tmp);
 	}
-	this->brain = dog.brain;
 }
 
 Dog	&Dog::operator=(const Dog	&dog) {
