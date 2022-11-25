@@ -6,13 +6,13 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/25 19:44:25 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/25 20:32:37 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 CC = c++
-CCFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
+CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
