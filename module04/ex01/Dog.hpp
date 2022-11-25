@@ -13,7 +13,9 @@ public:
 	Dog(const Dog	&dog);
 	Dog	&operator=(const Dog	&dog);
 	~Dog();
+
 	void	makeSound() const;
+	Brain	&getBrain() const;
 };
 
 #endif

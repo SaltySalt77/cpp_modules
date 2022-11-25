@@ -11,6 +11,12 @@ Dog::Dog(const Dog	&dog) : Animal() {
 	this->type = dog.type;
 	std::cout << "Creating dog copied version of 🐕" << type << std::endl;
 	this->brain = new Brain;
+	for (int i = 0; i < 100; i++) {
+		std::string	tmp = dog.getBrain().getIdea(i);
+		if (!tmp.size())
+			break ;
+		this->brain->addIdea(tmp);
+	}
 	this->brain = dog.brain;
 }
 
@@ -20,7 +26,12 @@ Dog	&Dog::operator=(const Dog	&dog) {
 	this->type = dog.type;
 	delete this->brain;
 	this->brain = new Brain;
-	this->brain = dog.brain;
+	for (int i = 0; i < 100; i++) {
+		std::string	tmp = dog.getBrain().getIdea(i);
+		if (!tmp.size())
+			break ;
+		this->brain->addIdea(tmp);
+	}
 	return *this;
 }
 
@@ -31,4 +42,8 @@ Dog::~Dog() {
 
 void	Dog::makeSound() const {
 	std::cout << "🐶 WOOF WOOF 🐶" << std::endl;
+}
+
+Brain	&Dog::getBrain() const {
+	return *this->brain;
 }
