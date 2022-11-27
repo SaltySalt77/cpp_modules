@@ -25,13 +25,19 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const	&executer) {
+void	ShrubberyCreationForm::execute(Bureaucrat const	&executer) const {
 	std::ofstream	outfile;
 	std::string		filename = target;
 
+	if (!getIsSigned())
+		throw FormNotSigned();
+	this->isHigher(getToExecute(), executer.getGrade());
+
 	filename.append("_shrubbery");
 
-	outfile.open(filename); // 아웃파일 열기 실패시 예외처리 필요
+	outfile.open(filename);
+	if (outfile.fail())
+		throw OpenFailed();
 	outfile << "                     ; ; ;\n";
 	outfile << "                    ;        ;  ;     ;;    ;" << std::endl;
 	outfile << "                 ;                 ;         ;  ;" << std::endl;

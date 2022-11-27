@@ -26,11 +26,11 @@ public :
 
 	int	validateGrade(const int grade);
 
-	bool	isHigher(int required, int grade);
+	bool	isHigher(int required, int grade) const;
 
 	void	beSigned(const Bureaucrat	&bureaucrat);
 
-	virtual void	execute(Bureaucrat const	&executer) = 0;
+	virtual void	execute(Bureaucrat const	&executer) const = 0;
 
 	std::string	getInfo() const;
 
@@ -40,6 +40,16 @@ public :
 	};
 
 	class GradeTooLowException  : public std::exception {
+	public :
+		const char * what() const throw();
+	};
+
+	class FormNotSigned : public std::exception {
+	public :
+		const char * what() const throw();
+	};
+
+	class OpenFailed : public std::exception {
 	public :
 		const char * what() const throw();
 	};

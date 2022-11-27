@@ -54,7 +54,7 @@ int	Form::validateGrade(const int	grade) {
 	return grade;
 }
 
-bool	Form::isHigher(int	required, int	grade) {
+bool	Form::isHigher(int	required, int	grade) const {
 	if (required >= grade)
 		return true;
 	throw	GradeTooLowException();
@@ -71,6 +71,14 @@ const char	*Form::GradeTooHighException::what() const throw() {
 
 const char	*Form::GradeTooLowException::what() const throw() {
 	return "Grade is too Low.\n";
+}
+
+const char	*Form::FormNotSigned::what() const throw() {
+	return "The form is not signed.\n";
+}
+
+const char	*Form::OpenFailed::what() const throw() {
+	return "File open failed.\n";
 }
 
 std::ostream	&operator <<(std::ostream	&out, const Form	&form) {
