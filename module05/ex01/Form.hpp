@@ -28,6 +28,8 @@ public :
 
 	void	beSigned(const Bureaucrat	&bureaucrat);
 
+	std::string	getInfo() const;
+
 	class GradeTooHighException : public std::exception {
 	public :
 		const char * what() const throw();
@@ -39,6 +41,6 @@ public :
 	};
 };
 
-std::ostream	&operator<< (const std::ostream	&out, const Form	&form);
+std::ostream	&operator<< (std::ostream	&out, const Form	&form);
 
 #endif
