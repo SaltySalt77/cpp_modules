@@ -42,6 +42,10 @@ int	Form::getToExecute() const {
 	return toExecute;
 }
 
+void	Form::setIsSigned(bool tf) {
+	isSigned = tf;
+}
+
 int	Form::validateGrade(const int	grade) {
 	if (grade < 1)
 		throw GradeTooHighException();

@@ -22,6 +22,8 @@ public :
 	int	getToSign() const;
 	int	getToExecute() const;
 
+	void	setIsSigned(bool	tf);
+
 	int	validateGrade(const int grade);
 
 	bool	isHigher(int required, int grade);
