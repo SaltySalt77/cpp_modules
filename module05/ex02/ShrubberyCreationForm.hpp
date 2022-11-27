@@ -13,6 +13,7 @@ public :
 	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm	&sForm);
 	~ShrubberyCreationForm();
 
+	void	execute(Bureaucrat const	&executer);
 };
 
 #endif
