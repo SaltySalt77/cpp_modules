@@ -66,3 +66,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const	&executer) const {
 
 	outfile.close();
 }
+
+ShrubberyCreationForm	*ShrubberyCreationForm::getNewForm(std::string	target) {
+	return new ShrubberyCreationForm(target);
+}
