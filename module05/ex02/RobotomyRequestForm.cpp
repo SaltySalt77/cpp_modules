@@ -1,4 +1,6 @@
 #include "RobotomyRequestForm.hpp"
+#include "stdlib.h"
+#include "time.h"
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45) {
 	target = "none";
@@ -24,3 +26,15 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm	&r
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
+void	RobotomyRequestForm::execute(Bureaucrat const	&executer) const {
+	srand(time(NULL));
+
+	if (!getIsSigned())
+		throw FormNotSigned();
+	isHigher(getToExecute(), executer.getGrade());
+	std::cout << "* The Sound of DRILLING NOISE *" << std::endl;
+	if (rand() % 2)
+		std::cout << "Robotomizing " << target << " failed.";
+	else
+		std::cout << target << " has been robotomized successfully." << std::endl;
+}

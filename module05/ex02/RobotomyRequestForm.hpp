@@ -13,6 +13,7 @@ public :
 	RobotomyRequestForm	&operator=(const RobotomyRequestForm	&rForm);
 	~RobotomyRequestForm();
 
+	void	execute(Bureaucrat const	&executer) const;
 };
 
 #endif

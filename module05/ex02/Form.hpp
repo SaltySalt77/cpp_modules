@@ -32,8 +32,6 @@ public :
 
 	virtual void	execute(Bureaucrat const	&executer) const = 0;
 
-	std::string	getInfo() const;
-
 	class GradeTooHighException : public std::exception {
 	public :
 		const char * what() const throw();
