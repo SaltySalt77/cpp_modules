@@ -6,7 +6,7 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/11/27 20:36:49 by hyna             ###   ########.fr        #
+#    Updated: 2022/11/28 16:12:57 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = a.out
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp\
+SRCS = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp\
+	RobotomyRequestForm.cpp ShrubberyCreationForm.cpp\
 
 OBJS = $(SRCS:.cpp=.obj)
 

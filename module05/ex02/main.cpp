@@ -15,23 +15,44 @@ int	main() {
 
 	std::cout << a << b << c << d << e << f << g << std::endl;
 
-	PresidentialPardonForm	pForm("Buzz");
-	RobotomyRequestForm		rForm("Robot");
 	ShrubberyCreationForm	sForm("Home");
+	RobotomyRequestForm		rForm("Robot");
+	PresidentialPardonForm	pForm("Buzz");
 
-	std::cout << pForm << rForm << sForm << std::endl;
+	std::cout << sForm << rForm << pForm << std::endl;
 
-	g.executeForm(pForm);
-	g.signForm(pForm);
-
-	std::cout << std::endl;
-
-	f.signForm(pForm);
-	f.executeForm(pForm);
+	g.executeForm(sForm);
+	g.signForm(sForm);
 
 	std::cout << std::endl;
 
-	e.executeForm(pForm);
-	e.executeForm
+	f.signForm(sForm);
+	f.executeForm(sForm);
+
+	std::cout << std::endl;
+
+	e.executeForm(sForm);
+	e.executeForm(rForm);
+	e.signForm(rForm);
+
+	std::cout << std::endl;
+
+	d.signForm(rForm);
+	d.executeForm(rForm);
+
+	std::cout << std::endl;
+
+	c.executeForm(rForm);
+	c.executeForm(pForm);
+	c.signForm(pForm);
+
+	std::cout << std::endl;
+
+	b.signForm(pForm);
+	b.executeForm(pForm);
+
+	std::cout << std::endl;
+
+	a.executeForm(pForm);
 	return 0;
 }
