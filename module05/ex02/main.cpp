@@ -7,17 +7,5 @@ int	main() {
 
 	std::cout << a << b << std::endl;
 
-	Form	formA("formA", 1, 1);
-	Form	formB("formB", 150, 150);
-
-	std::cout << formA << formB << std::endl;
-
-	b.signForm(formA);
-	std::cout << formA << std::endl;
-	a.signForm(formA);
-	std::cout << formA << std::endl;
-
-	b.signForm(formB);
-	std::cout << formB << std::endl;
 	return 0;
 }
