@@ -15,12 +15,16 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm	&sForm)
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm	&sForm) {
-	if (this == &sForm)
+	if (this == &sForm
+		|| getToSign() != sForm.getToSign()
+		|| getToExecute() != sForm.getToExecute()
+		|| getName() != sForm.getName())
 		return *this;
-	this->target = sForm.target;
-	this->setIsSigned(sForm.getIsSigned());
+	target = sForm.target;
+	setIsSigned(sForm.getIsSigned());
 	return *this;
 }
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }

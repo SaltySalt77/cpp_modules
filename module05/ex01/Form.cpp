@@ -18,8 +18,12 @@ Form::Form(const Form &form)
 }
 
 Form	&Form::operator=(const Form	&form) {
-	if (this != &form)
-		isSigned = form.getIsSigned();
+	if (this == &form
+		|| toSign != form.getToSign()
+		|| toExecute != form.getToExecute()
+		|| name != form.getName())
+		return *this;
+	isSigned = form.getIsSigned();
 	return *this;
 }
 

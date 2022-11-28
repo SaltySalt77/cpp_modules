@@ -13,11 +13,14 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm	&sFo
 	this->setIsSigned(sForm.getIsSigned());
 }
 
-PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm	&sForm) {
-	if (this == &sForm)
+PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm	&pForm) {
+	if (this == &pForm
+		|| getToSign() != pForm.getToSign()
+		|| getToExecute() != pForm.getToExecute()
+		|| getName() != pForm.getName())
 		return *this;
-	this->target = sForm.target;
-	this->setIsSigned(sForm.getIsSigned());
+	target = pForm.target;
+	setIsSigned(pForm.getIsSigned());
 	return *this;
 }
 

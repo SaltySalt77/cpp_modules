@@ -16,10 +16,13 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm	&rForm) : For
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm	&rForm) {
-	if (this == &rForm)
+	if (this == &rForm
+		|| getToSign() != rForm.getToSign()
+		|| getToExecute() != rForm.getToExecute()
+		|| getName() != rForm.getName())
 		return *this;
-	this->target = rForm.target;
-	this->setIsSigned(rForm.getIsSigned());
+	target = rForm.target;
+	setIsSigned(rForm.getIsSigned());
 	return *this;
 }
 
