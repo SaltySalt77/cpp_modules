@@ -3,6 +3,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int	main() {
 	Bureaucrat	a("A", 1);
@@ -15,44 +16,72 @@ int	main() {
 
 	std::cout << a << b << c << d << e << f << g << std::endl;
 
-	ShrubberyCreationForm	sForm("Home");
-	RobotomyRequestForm		rForm("Robot");
-	PresidentialPardonForm	pForm("Buzz");
+	Intern someRandomIntern;
+	Form	*sForm;
+	Form	*rForm;
+	Form	*pForm;
+	Form	*nForm;
 
-	std::cout << sForm << rForm << pForm << std::endl;
+	try {
+		sForm = someRandomIntern.makeForm("shrubbery creation", "Home");
+	} catch (std::exception	&e) {
+		std::cerr << e.what();
+	}
 
-	g.executeForm(sForm);
-	g.signForm(sForm);
+	try {
+		rForm = someRandomIntern.makeForm("robotomy request", "Bender");
+	} catch (std::exception	&e) {
+		std::cerr << e.what();
+	}
+
+	try {
+		pForm = someRandomIntern.makeForm("presidential pardon", "Bender");
+	} catch (std::exception	&e) {
+		std::cerr << e.what();
+	}
+
+	try {
+		nForm = someRandomIntern.makeForm("null", "null");
+	} catch (std::exception	&e) {
+		std::cerr << "Intern failed to create form. " << e.what();
+	}
+
+	(void) nForm;
+
+	std::cout << std::endl << *sForm << *rForm << *pForm << std::endl;
+
+	g.executeForm(*sForm);
+	g.signForm(*sForm);
 
 	std::cout << std::endl;
 
-	f.signForm(sForm);
-	f.executeForm(sForm);
+	f.signForm(*sForm);
+	f.executeForm(*sForm);
 
 	std::cout << std::endl;
 
-	e.executeForm(sForm);
-	e.executeForm(rForm);
-	e.signForm(rForm);
+	e.executeForm(*sForm);
+	e.executeForm(*rForm);
+	e.signForm(*rForm);
 
 	std::cout << std::endl;
 
-	d.signForm(rForm);
-	d.executeForm(rForm);
+	d.signForm(*rForm);
+	d.executeForm(*rForm);
 
 	std::cout << std::endl;
 
-	c.executeForm(rForm);
-	c.executeForm(pForm);
-	c.signForm(pForm);
+	c.executeForm(*rForm);
+	c.executeForm(*pForm);
+	c.signForm(*pForm);
 
 	std::cout << std::endl;
 
-	b.signForm(pForm);
-	b.executeForm(pForm);
+	b.signForm(*pForm);
+	b.executeForm(*pForm);
 
 	std::cout << std::endl;
 
-	a.executeForm(pForm);
+	a.executeForm(*pForm);
 	return 0;
 }
