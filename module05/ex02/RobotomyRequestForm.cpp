@@ -37,7 +37,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const	&executer) const {
 	isHigher(getToExecute(), executer.getGrade());
 	std::cout << "* The Sound of DRILLING NOISE *" << std::endl;
 	if (rand() % 2)
-		std::cout << "Robotomizing " << target << " failed.";
+		std::cout << "Robotomizing " << target << " failed. ☹️" << std::endl;
 	else
-		std::cout << target << " has been robotomized successfully." << std::endl;
+		std::cout << target << " has been robotomized successfully. 🤖" << std::endl;
 }

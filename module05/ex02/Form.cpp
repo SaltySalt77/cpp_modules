@@ -78,11 +78,11 @@ const char	*Form::GradeTooLowException::what() const throw() {
 }
 
 const char	*Form::FormNotSigned::what() const throw() {
-	return "The form is not signed.\n";
+	return "The form is not signed. 📃\n";
 }
 
 const char	*Form::OpenFailed::what() const throw() {
-	return "File open failed.\n";
+	return "File open failed. ☹️\n";
 }
 
 std::ostream	&operator <<(std::ostream	&out, const Form	&form) {
