@@ -151,7 +151,10 @@ void	Convert::printFloat() {
 	std::stringstream	ss;
 	std::string			tmp;
 
-	ss << _int;
+	if (_int >= 0)
+		ss << _int;
+	else
+		ss << _int * -1;
 	tmp = ss.str();
 	std::cout << "Float : ";
 	if (isImpossible && !isINF && !isNAN) {
