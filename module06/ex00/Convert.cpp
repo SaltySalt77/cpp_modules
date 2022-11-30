@@ -47,54 +47,20 @@ Convert	&Convert::operator=(const Convert	&convert) {
 Convert::~Convert() {
 }
 
-void	Convert::convertValue() {
-
-	if (!origin.compare("nanf") || !origin.compare("nan")) {
-		isNAN = true;
-		_float = static_cast<float>(NAN);
-		_double = static_cast<double>(NAN);
-	}
-	else if (!origin.compare("inff") || !origin.compare("-inff") || !origin.compare("+inff")
-		|| !origin.compare("inf") || !origin.compare("-inf") || !origin.compare("+inf") ) {
-			isINF = true;
-			if (origin[0] == '-') {
-				_double = static_cast<double>(INFINITY * (-1));
-				_float = static_cast<float>(INFINITY * (-1));
-			}
-			else {
-				_double = static_cast<double>(INFINITY);
-				_float = static_cast<float>(INFINITY);
-			}
-	}
-	else if (origin.size() == 1) {
-		_char = static_cast<char>(origin[0]);
+void	Convert::convertChar() {
+	if (origin.size() == 1) {
+		_char = static_cast<char>(atoi(origin.c_str()));
 		if (isdigit(_char))
 			_char -= 48;
-		_int = static_cast<int>(_char);
-		_float = static_cast<float>(_char);
-		_double = static_cast<double>(_char);
-	}
-	else if (origin.find('.') != std::string::npos) {
-		char *ptr;
-		long long tmp = strtoll(origin.c_str(), &ptr, 10);
-		if (tmp > INT_MAX || tmp < INT_MIN)
-			isImpossible = true;
-		_double = atof(origin.c_str());
-		_float = static_cast<float>(_double);
-		_int = static_cast<int>(_double);
-		_char = static_cast<char>(_double);
-		printDot = false;
 	}
 	else {
-		char *ptr;
-		long long tmp = strtoll(origin.c_str(), &ptr, 10);
-		if (tmp > INT_MAX || tmp < INT_MIN)
-			isImpossible = true;
-		_int = atoi(origin.c_str());
-		_char = static_cast<char>(_int);
-		_float = static_cast<float>(_int);
-		_double = static_cast<double>(_int);
+		_char = static_cast<char>(atoi(origin.c_str()));
 	}
+}
+
+
+void	Convert::convertValue() {
+
 }
 
 void	Convert::printChar() {
