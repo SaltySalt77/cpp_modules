@@ -41,7 +41,7 @@ int	main() {
 	}
 
 	try {
-		nForm = someRandomIntern.makeForm("null", "null");
+		nForm = someRandomIntern.makeForm("","");
 	} catch (std::exception	&e) {
 		std::cerr << "Intern failed to create form. " << e.what();
 	}
@@ -83,7 +83,7 @@ int	main() {
 	std::cout << std::endl;
 
 	a.executeForm(*pForm);
-	
+
 	delete sForm;
 	delete rForm;
 	delete pForm;

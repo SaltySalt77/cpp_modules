@@ -1,6 +1,6 @@
 #include "Form.hpp"
 #include <iostream>
-
+// default 에서 예외처리
 Form::Form() : name("unnamed"), toSign(150), toExecute(150) {
 	isSigned = false;
 }

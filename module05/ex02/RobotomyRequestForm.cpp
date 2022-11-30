@@ -1,5 +1,5 @@
 #include "RobotomyRequestForm.hpp"
-#include "stdlib.h"
+#include "stdlib.h" // 헤더 변경
 #include "time.h"
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45) {

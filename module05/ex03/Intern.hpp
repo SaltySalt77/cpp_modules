@@ -13,7 +13,7 @@ public:
 
 	Form	*makeForm(const std::string	name, const std::string	target);
 
-	class FromNotExist : public std::exception {
+	class FromNotExist : public std::exception { // 오타 수정하기
 	public :
 		const char * what() const throw();
 	};
