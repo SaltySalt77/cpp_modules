@@ -114,6 +114,16 @@ void	Convert::convertValue() {
 	convertInt();
 	convertDouble();
 	convertFloat();
+	if (isNAN || isINF)
+		return ;
+	if (origin.size() != 1 && !isdigit(origin[0])) {
+		if (origin[0] != '+' && origin[0] != '-') {
+			isImpossible = true;
+		}
+		else if (!isdigit(origin[1])) {
+			isImpossible = true;
+		}
+	}
 }
 
 void	Convert::printChar() {
@@ -124,6 +134,9 @@ void	Convert::printChar() {
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << _char << std::endl;
+	if (origin.size() == 1 && !isdigit(origin[0]) && isprint(_char))
+		isImpossible = true;
+
 }
 
 void	Convert::printInt() {
