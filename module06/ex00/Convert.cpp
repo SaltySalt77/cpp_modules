@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <sstream>
+#include <iomanip>
 
 Convert::Convert() {
 	isNAN = false;
@@ -53,14 +54,62 @@ void	Convert::convertChar() {
 		if (isdigit(_char))
 			_char -= 48;
 	}
+	else if ((origin[0] == '-' || origin[0] == '+') && isdigit(origin[1]) && origin.size() == 2) {
+		_char = static_cast<char>(atoi(origin.c_str()));
+		_char -= 48;
+	}
 	else {
 		_char = static_cast<char>(atoi(origin.c_str()));
 	}
 }
 
+void	Convert::convertInt() {
+	std::stringstream	ss;
+	std::string			tmp;
+
+	_int = static_cast<int>(atoi(origin.c_str()));
+	if (_int == INT_MIN) {
+		ss << _int;
+		tmp = ss.str();
+		if (tmp.compare(origin.substr(0, 11)))
+			isImpossible = true;
+	}
+	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) || !origin[0]))
+		isImpossible = true;
+}
+
+void	Convert::convertFloat() {
+	_float = static_cast<float>(_double);
+}
+
+void	Convert::convertDouble() {
+	if (!origin.compare("nanf") || !origin.compare("nan")) {
+		isNAN = true;
+		_double = static_cast<double>(NAN);
+	}
+	else if (!origin.compare("inff") || !origin.compare("-inff") || !origin.compare("+inff")
+			|| !origin.compare("inf") || !origin.compare("-inf") || !origin.compare("+inf")) {
+		isINF = true;
+		if (origin[0] == '-') {
+			_double = static_cast<double>(INFINITY * (-1));
+		}
+		else {
+			_double = static_cast<double>(INFINITY);
+		}
+	}
+	else if (isImpossible){
+		return ;
+	}
+	else {
+		_double = static_cast<double>(atof(origin.c_str()));
+	}
+}
 
 void	Convert::convertValue() {
-
+	convertChar();
+	convertInt();
+	convertDouble();
+	convertFloat();
 }
 
 void	Convert::printChar() {
@@ -82,24 +131,31 @@ void	Convert::printInt() {
 }
 
 void	Convert::printFloat() {
+	std::stringstream	ss;
+	std::string			tmp;
+
+	ss << _int;
+	tmp = ss.str();
 	std::cout << "Float : ";
-	if (isImpossible) {
+	if (isImpossible && !isINF && !isNAN) {
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	std::cout << _float;
-	if (_float == static_cast<float>(_int))
-		std::cout << ".0";
+	else if (isINF || isNAN)
+		std::cout << _float;
+	else
+		std::cout << std::showpoint << std::setprecision(tmp.size() + 1) << _float;
 	std::cout << "f" << std::endl;
 }
 
 void	Convert::printDouble() {
 	std::cout << "Double : ";
-	if (isImpossible) {
+	if (isImpossible && !isINF && !isNAN) {
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	std::cout << _double;
-	if (_double == static_cast<double>(_int))
-		std::cout << ".0" << std::endl;
+	else
+		std::cout << _double << std::endl;
+	// else if (isNAN || isINF)
+	// 	std::cout << _double;
 }

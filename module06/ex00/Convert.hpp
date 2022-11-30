@@ -6,6 +6,12 @@
 #include <climits>
 #include <cctype>
 
+typedef enum e_type {
+	IS_NAN = 0,
+	IS_INF,
+	IS_IMPOSSIBLE
+} t_type;
+
 class Convert {
 private :
 	bool		isNAN;

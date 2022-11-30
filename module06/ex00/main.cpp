@@ -17,8 +17,5 @@ int	main(int argc, char	**argv) {
 
 	std::cout << std::endl << std::endl;
 
-	double test = 111111111111111;
-
-	std::cout << test << std::endl;
 	return 0;
 }
