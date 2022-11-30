@@ -39,7 +39,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const	&executer) const {
 
 	filename.append("_shrubbery");
 
-	outfile.open(filename);
+	outfile.open(filename.c_str());
 	if (outfile.fail())
 		throw OpenFailed();
 	outfile << "                     ; ; ;\n";
