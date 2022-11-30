@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <sstream>
+#include <iomanip>
 
 Convert::Convert() {
 	isNAN = false;
@@ -47,53 +48,81 @@ Convert	&Convert::operator=(const Convert	&convert) {
 Convert::~Convert() {
 }
 
-void	Convert::convertValue() {
-
-	if (!origin.compare("nanf") || !origin.compare("nan")) {
-		isNAN = true;
-		_float = static_cast<float>(NAN);
-		_double = static_cast<double>(NAN);
-	}
-	else if (!origin.compare("inff") || !origin.compare("-inff") || !origin.compare("+inff")
-		|| !origin.compare("inf") || !origin.compare("-inf") || !origin.compare("+inf") ) {
-			isINF = true;
-			if (origin[0] == '-') {
-				_double = static_cast<double>(INFINITY * (-1));
-				_float = static_cast<float>(INFINITY * (-1));
-			}
-			else {
-				_double = static_cast<double>(INFINITY);
-				_float = static_cast<float>(INFINITY);
-			}
-	}
-	else if (origin.size() == 1) {
+void	Convert::convertChar() {
+	if (origin.size() == 1) {
 		_char = static_cast<char>(origin[0]);
 		if (isdigit(_char))
 			_char -= 48;
-		_int = static_cast<int>(_char);
-		_float = static_cast<float>(_char);
-		_double = static_cast<double>(_char);
 	}
-	else if (origin.find('.') != std::string::npos) {
-		char *ptr;
-		long long tmp = strtoll(origin.c_str(), &ptr, 10);
-		if (tmp > INT_MAX || tmp < INT_MIN)
-			isImpossible = true;
-		_double = atof(origin.c_str());
-		_float = static_cast<float>(_double);
-		_int = static_cast<int>(_double);
-		_char = static_cast<char>(_double);
-		printDot = false;
+	else if ((origin[0] == '-' || origin[0] == '+') && isdigit(origin[1]) && origin.size() == 2) {
+		_char = static_cast<char>(atoi(origin.c_str()));
+		_char -= 48;
 	}
 	else {
-		char *ptr;
-		long long tmp = strtoll(origin.c_str(), &ptr, 10);
-		if (tmp > INT_MAX || tmp < INT_MIN)
+		_char = static_cast<char>(atoi(origin.c_str()));
+	}
+}
+
+void	Convert::convertInt() {
+	std::stringstream	ss;
+	std::string			tmp;
+
+	_int = static_cast<int>(atoi(origin.c_str()));
+	if (_int == INT_MIN) {
+		ss << _int;
+		tmp = ss.str();
+		if (tmp.compare(origin.substr(0, 11)))
 			isImpossible = true;
-		_int = atoi(origin.c_str());
-		_char = static_cast<char>(_int);
-		_float = static_cast<float>(_int);
-		_double = static_cast<double>(_int);
+	}
+	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) && !origin[0]))
+		isImpossible = true;
+}
+
+void	Convert::convertFloat() {
+	_float = static_cast<float>(_double);
+	if (!isINF && _float == INFINITY) {
+		isINF = true;
+		_double = static_cast<double>(INFINITY);
+	}
+}
+
+void	Convert::convertDouble() {
+	if (!origin.compare("nanf") || !origin.compare("nan")) {
+		isNAN = true;
+		_double = static_cast<double>(NAN);
+	}
+	else if (!origin.compare("inff") || !origin.compare("-inff") || !origin.compare("+inff")
+			|| !origin.compare("inf") || !origin.compare("-inf") || !origin.compare("+inf")) {
+		isINF = true;
+		if (origin[0] == '-') {
+			_double = static_cast<double>(INFINITY * (-1));
+		}
+		else {
+			_double = static_cast<double>(INFINITY);
+		}
+	}
+	else if (isImpossible){
+		return ;
+	}
+	else {
+		_double = static_cast<double>(atof(origin.c_str()));
+	}
+}
+
+void	Convert::convertValue() {
+	convertChar();
+	convertInt();
+	convertDouble();
+	convertFloat();
+	if (isNAN || isINF)
+		return ;
+	if (origin.size() != 1 && !isdigit(origin[0])) {
+		if (origin[0] != '+' && origin[0] != '-') {
+			isImpossible = true;
+		}
+		else if (!isdigit(origin[1])) {
+			isImpossible = true;
+		}
 	}
 }
 
@@ -105,6 +134,9 @@ void	Convert::printChar() {
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << _char << std::endl;
+	if (origin.size() == 1 && !isdigit(origin[0]) && isprint(_char))
+		isImpossible = true;
+
 }
 
 void	Convert::printInt() {
@@ -116,24 +148,29 @@ void	Convert::printInt() {
 }
 
 void	Convert::printFloat() {
+	std::stringstream	ss;
+	std::string			tmp;
+
+	ss << _int;
+	tmp = ss.str();
 	std::cout << "Float : ";
-	if (isImpossible) {
+	if (isImpossible && !isINF && !isNAN) {
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	std::cout << _float;
-	if (_float == static_cast<float>(_int))
-		std::cout << ".0";
+	else if (isINF || isNAN)
+		std::cout << _float;
+	else
+		std::cout << std::showpoint << std::setprecision(tmp.size() + 1) << _float;
 	std::cout << "f" << std::endl;
 }
 
 void	Convert::printDouble() {
 	std::cout << "Double : ";
-	if (isImpossible) {
+	if (isImpossible && !isINF && !isNAN) {
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	std::cout << _double;
-	if (_double == static_cast<double>(_int))
-		std::cout << ".0" << std::endl;
+	else
+		std::cout << _double << std::endl;
 }
