@@ -26,7 +26,6 @@ int	main() {
 	rForm = someRandomIntern.makeForm("robotomy request", "Bender");
 	pForm = someRandomIntern.makeForm("presidential pardon", "Bender");
 	nForm = someRandomIntern.makeForm("","");
-	(void) nForm;
 
 	std::cout << std::endl << *sForm << *rForm << *pForm << std::endl;
 
@@ -67,5 +66,6 @@ int	main() {
 	delete sForm;
 	delete rForm;
 	delete pForm;
+	delete nForm;
 	return 0;
 }

@@ -11,7 +11,7 @@ int	main() {
 	Form	formB("formB", 150, 150);
 	Form	formC("formC", 200, 200);
 
-	std::cout << formA << formB << formC << std::endl;
+	std::cout << std::endl << formA << formB << formC << std::endl;
 
 	b.signForm(formA);
 	std::cout << formA << std::endl;

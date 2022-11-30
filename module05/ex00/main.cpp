@@ -5,25 +5,15 @@ int	main() {
 	Bureaucrat	b("B", 150);
 	Bureaucrat	c("C", 200);
 
-	std::cout << a << b << c << std::endl;
+	std::cout << std::endl << a << b << c << std::endl;
 
-	try {
-		a.incrementGrade();
-		b.decrementGrade();
-	} catch (const std::exception	&e) {
-		std::cout << e.what();
-	}
+	a.incrementGrade();
+	b.decrementGrade();
 
-	std::cout << a << b << std::endl;
+	std::cout << std::endl << a << b << std::endl;
 
-
-	try {
-		a.decrementGrade();
-		b.incrementGrade();
-	}
-	catch(const std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
+	a.decrementGrade();
+	b.incrementGrade();
 
 	std::cout << a << b << std::endl;
 
