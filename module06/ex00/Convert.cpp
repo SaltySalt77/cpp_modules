@@ -50,7 +50,7 @@ Convert::~Convert() {
 
 void	Convert::convertChar() {
 	if (origin.size() == 1) {
-		_char = static_cast<char>(atoi(origin.c_str()));
+		_char = static_cast<char>(origin[0]);
 		if (isdigit(_char))
 			_char -= 48;
 	}
@@ -74,12 +74,16 @@ void	Convert::convertInt() {
 		if (tmp.compare(origin.substr(0, 11)))
 			isImpossible = true;
 	}
-	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) || !origin[0]))
+	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) && !origin[0]))
 		isImpossible = true;
 }
 
 void	Convert::convertFloat() {
 	_float = static_cast<float>(_double);
+	if (!isINF && _float == INFINITY) {
+		isINF = true;
+		_double = static_cast<double>(INFINITY);
+	}
 }
 
 void	Convert::convertDouble() {
@@ -156,6 +160,4 @@ void	Convert::printDouble() {
 	}
 	else
 		std::cout << _double << std::endl;
-	// else if (isNAN || isINF)
-	// 	std::cout << _double;
 }
