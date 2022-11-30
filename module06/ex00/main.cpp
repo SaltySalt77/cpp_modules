@@ -1,5 +1,6 @@
 #include "Convert.hpp"
 #include <cmath>
+#include <iomanip>
 
 int	main(int argc, char	**argv) {
 
@@ -8,6 +9,8 @@ int	main(int argc, char	**argv) {
 		return 1;
 	}
 
+	std::cout << std::endl;
+
 	Convert	Convert(argv[1]);
 	Convert.convertValue();
 	Convert.printChar();
@@ -15,10 +18,7 @@ int	main(int argc, char	**argv) {
 	Convert.printFloat();
 	Convert.printDouble();
 
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl;
 
-	double test = 111111111111111;
-
-	std::cout << test << std::endl;
 	return 0;
 }

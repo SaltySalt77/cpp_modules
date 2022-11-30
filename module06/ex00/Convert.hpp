@@ -24,6 +24,11 @@ public :
 	Convert	&operator=(const Convert	&Convert);
 	~Convert();
 
+	void	convertChar();
+	void	convertInt();
+	void	convertFloat();
+	void	convertDouble();
+
 	void	convertValue();
 
 	void	printChar();
