@@ -75,6 +75,10 @@ void	Convert::convertValue() {
 		_double = static_cast<double>(_char);
 	}
 	else if (origin.find('.') != std::string::npos) {
+		char *ptr;
+		long long tmp = strtoll(origin.c_str(), &ptr, 10);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			isImpossible = true;
 		_double = atof(origin.c_str());
 		_float = static_cast<float>(_double);
 		_int = static_cast<int>(_double);
@@ -82,6 +86,10 @@ void	Convert::convertValue() {
 		printDot = false;
 	}
 	else {
+		char *ptr;
+		long long tmp = strtoll(origin.c_str(), &ptr, 10);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			isImpossible = true;
 		_int = atoi(origin.c_str());
 		_char = static_cast<char>(_int);
 		_float = static_cast<float>(_int);
@@ -91,7 +99,7 @@ void	Convert::convertValue() {
 
 void	Convert::printChar() {
 	std::cout << "char : ";
-	if (isNAN || isINF || _int > CHAR_MAX || _int < CHAR_MIN)
+	if (isNAN || isINF || _int > CHAR_MAX || _int < CHAR_MIN || isImpossible)
 		std::cout << "impossible" << std::endl;
 	else if (!isprint(_char))
 		std::cout << "Non displayable" << std::endl;
@@ -100,17 +108,9 @@ void	Convert::printChar() {
 }
 
 void	Convert::printInt() {
-	std::stringstream ss;
-	ss << _int;
-	std::string	str = ss.str();
-
 	std::cout << "Int : ";
-	if (isNAN || isINF)
+	if (isNAN || isINF || isImpossible)
 		std::cout << "impossible" << std::endl;
-	else if (str.compare(origin) || (origin[0] == '+' && str.compare(origin.substr(1, origin.size() - 1)))) {
-		std::cout << "impossible" << std::endl;
-		isImpossible = true;
-	}
 	else
 		std::cout << _int << std::endl;
 }
