@@ -83,5 +83,9 @@ int	main() {
 	std::cout << std::endl;
 
 	a.executeForm(*pForm);
+	
+	delete sForm;
+	delete rForm;
+	delete pForm;
 	return 0;
 }
