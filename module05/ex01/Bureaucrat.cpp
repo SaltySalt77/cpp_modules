@@ -32,23 +32,29 @@ int	Bureaucrat::getGrade() const {
 }
 
 void	Bureaucrat::setGrade(int grade) {
-	if (grade < 1)
-		throw	GradeTooHighException();
-	else if (grade > 150)
-		throw	GradeTooLowException();
-	this->grade = grade;
+	try {
+		if (grade < 1)
+			throw	GradeTooHighException();
+		else if (grade > 150)
+			throw	GradeTooLowException();
+		this->grade = grade;
+	}
+	catch (Bureaucrat::GradeTooHighException	&e) {
+		std::cerr << e.what();
+		this->grade = 1;
+	}
+	catch (Bureaucrat::GradeTooLowException	&e) {
+		std::cerr << e.what();
+		this->grade = 150;
+	}
 }
 
 void	Bureaucrat::incrementGrade() {
-	if (grade <= 1)
-		throw	GradeTooHighException();
-	grade--;
+	setGrade(this->grade - 1);
 }
 
 void	Bureaucrat::decrementGrade() {
-	if (grade >= 150)
-		throw	GradeTooLowException();
-	grade++;
+	setGrade(this->grade + 1);
 }
 
 void	Bureaucrat::signForm(Form	&form) {
@@ -66,7 +72,7 @@ const char	*Bureaucrat::GradeTooHighException::what() const throw() {
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade too low. The lowest grade is 159\n";
+	return "Grade too low. The lowest grade is 150\n";
 }
 
 std::ostream &operator << (std::ostream	&out,	const Bureaucrat	&bureaucrat) {

@@ -35,14 +35,20 @@ Form	*Intern::makeForm(const std::string	name, const std::string	target) {
 	Form * (*fptr[3]) (const std::string) = { &getNewSForm, &getNewRForm, &getNewPForm };
 
 	int i = 0;
-	while (i < 3) {
-		if (!formLst[i].compare(name)) {
-			std::cout << "Intern creates " << name << std::endl;
-			return fptr[i](target);
+	try {
+		while (i < 3) {
+			if (!formLst[i].compare(name)) {
+				std::cout << "Intern creates " << name << std::endl;
+				return fptr[i](target);
+			}
+			i++;
 		}
-		i++;
+		throw FormNotExist();
 	}
-	throw FormNotExist();
+	catch (std::exception	&e) {
+		std::cerr << "Intern failed to create" << name << ". " << e.what();
+	}
+	return nullptr;
 }
 
 const char	*Intern::FormNotExist::what() const throw() {

@@ -3,13 +3,9 @@
 int	main() {
 	Bureaucrat	a("A", 1);
 	Bureaucrat	b("B", 150);
-	try {
-		Bureaucrat	c("C", 200);
-	} catch (const std::exception	&e) {
-		std::cout << e.what();
-	}
+	Bureaucrat	c("C", 200);
 
-	std::cout << a << b << std::endl;
+	std::cout << a << b << c << std::endl;
 
 	try {
 		a.incrementGrade();

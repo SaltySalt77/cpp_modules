@@ -22,30 +22,10 @@ int	main() {
 	Form	*pForm;
 	Form	*nForm;
 
-	try {
-		sForm = someRandomIntern.makeForm("shrubbery creation", "Home");
-	} catch (std::exception	&e) {
-		std::cerr << e.what();
-	}
-
-	try {
-		rForm = someRandomIntern.makeForm("robotomy request", "Bender");
-	} catch (std::exception	&e) {
-		std::cerr << e.what();
-	}
-
-	try {
-		pForm = someRandomIntern.makeForm("presidential pardon", "Bender");
-	} catch (std::exception	&e) {
-		std::cerr << e.what();
-	}
-
-	try {
-		nForm = someRandomIntern.makeForm("","");
-	} catch (std::exception	&e) {
-		std::cerr << "Intern failed to create form. " << e.what();
-	}
-
+	sForm = someRandomIntern.makeForm("shrubbery creation", "Home");
+	rForm = someRandomIntern.makeForm("robotomy request", "Bender");
+	pForm = someRandomIntern.makeForm("presidential pardon", "Bender");
+	nForm = someRandomIntern.makeForm("","");
 	(void) nForm;
 
 	std::cout << std::endl << *sForm << *rForm << *pForm << std::endl;

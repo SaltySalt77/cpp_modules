@@ -9,8 +9,9 @@ int	main() {
 
 	Form	formA("formA", 1, 1);
 	Form	formB("formB", 150, 150);
+	Form	formC("formC", 200, 200);
 
-	std::cout << formA << formB << std::endl;
+	std::cout << formA << formB << formC << std::endl;
 
 	b.signForm(formA);
 	std::cout << formA << std::endl;

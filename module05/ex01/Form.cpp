@@ -47,10 +47,20 @@ int	Form::getToExecute() const {
 }
 
 int	Form::validateGrade(const int	grade) {
-	if (grade < 1)
-		throw GradeTooHighException();
-	else if (grade > 150)
-		throw GradeTooLowException();
+	try {
+		if (grade < 1)
+			throw GradeTooHighException();
+		else if (grade > 150)
+			throw GradeTooLowException();
+	}
+	catch (Form::GradeTooHighException	&e) {
+		std::cerr << e.what();
+		return 1;
+	}
+	catch (Form::GradeTooLowException	&e) {
+		std::cerr << e.what();
+		return 150;
+	}
 	return grade;
 }
 
