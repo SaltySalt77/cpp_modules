@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
-#include "stdlib.h"
-#include "time.h"
+#include <cstdlib>
+#include <time.h>
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45) {
 	target = "none";

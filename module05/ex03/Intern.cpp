@@ -42,9 +42,9 @@ Form	*Intern::makeForm(const std::string	name, const std::string	target) {
 		}
 		i++;
 	}
-	throw FromNotExist();
+	throw FormNotExist();
 }
 
-const char	*Intern::FromNotExist::what() const throw() {
+const char	*Intern::FormNotExist::what() const throw() {
 	return "The Form does Not Exist. ☠️\n";
 }

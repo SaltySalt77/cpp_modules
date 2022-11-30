@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
-//default에서 예외처리
-Bureaucrat::Bureaucrat() : name("Anonymous"), grade(150) {
+
+Bureaucrat::Bureaucrat() : name("Anonymous") {
+	this->setGrade(150);
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
