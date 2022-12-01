@@ -8,7 +8,6 @@ private :
 	bool		isNAN;
 	bool		isINF;
 	bool		isImpossible;
-	bool		printDot;
 	char		_char;
 	int			_int;
 	float		_float;
