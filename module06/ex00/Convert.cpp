@@ -75,9 +75,6 @@ void	Convert::convertInt() {
 	}
 	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) && !origin[0]))
 		isImpossible = true;
-	else if (_int < 0 && origin[0] != '-') {
-		isImpossible = true;
-	}
 }
 
 void	Convert::convertFloat() {
@@ -85,6 +82,10 @@ void	Convert::convertFloat() {
 	if (!isINF && _float == INFINITY) {
 		isINF = true;
 		_double = static_cast<double>(INFINITY);
+	}
+	else if (!isINF && _float == INFINITY * -1) {
+		isINF = true;
+		_double = static_cast<double>(INFINITY * -1);
 	}
 }
 
@@ -109,6 +110,8 @@ void	Convert::convertDouble() {
 	else {
 		_double = static_cast<double>(atof(origin.c_str()));
 	}
+	if ((_int >= 0 && _double < 0) || (_int <= 0 && _double > 0))
+		isImpossible = true;
 }
 
 void	Convert::convertValue() {
@@ -129,7 +132,7 @@ void	Convert::convertValue() {
 }
 
 void	Convert::printChar() {
-	std::cout << "char : ";
+	std::cout << "char   : ";
 	if (isNAN || isINF || _int > CHAR_MAX || _int < CHAR_MIN || isImpossible)
 		std::cout << "impossible" << std::endl;
 	else if (!isprint(_char))
@@ -142,7 +145,7 @@ void	Convert::printChar() {
 }
 
 void	Convert::printInt() {
-	std::cout << "Int : ";
+	std::cout << "Int    : ";
 	if (isNAN || isINF || isImpossible)
 		std::cout << "impossible" << std::endl;
 	else
@@ -158,7 +161,7 @@ void	Convert::printFloat() {
 	else
 		ss << _int * -1;
 	tmp = ss.str();
-	std::cout << "Float : ";
+	std::cout << "Float  : ";
 	if (isImpossible && !isINF && !isNAN) {
 		std::cout << "impossible" << std::endl;
 		return ;
