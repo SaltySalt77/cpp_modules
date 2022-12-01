@@ -8,8 +8,6 @@ int	main(int argc, char	**argv) {
 		return 1;
 	}
 
-	std::cout << std::endl;
-
 	Convert	Convert(argv[1]);
 	Convert.convertValue();
 	Convert.printChar();

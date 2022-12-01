@@ -75,6 +75,9 @@ void	Convert::convertInt() {
 	}
 	else if (_int == 0 && ((!((origin[0] == '-' || origin[0] == '+') && origin[1] == 0)) && !origin[0]))
 		isImpossible = true;
+	else if (_int < 0 && origin[0] != '-') {
+		isImpossible = true;
+	}
 }
 
 void	Convert::convertFloat() {
