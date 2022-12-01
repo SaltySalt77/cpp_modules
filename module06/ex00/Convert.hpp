@@ -1,10 +1,7 @@
 #ifndef CONVERT_HPP
 # define CONVERT_HPP
 
-#include <iostream>
 #include <string>
-#include <climits>
-#include <cctype>
 
 class Convert {
 private :

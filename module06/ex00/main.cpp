@@ -1,6 +1,5 @@
 #include "Convert.hpp"
-#include <cmath>
-#include <iomanip>
+#include <iostream>
 
 int	main(int argc, char	**argv) {
 

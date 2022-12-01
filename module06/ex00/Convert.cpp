@@ -1,14 +1,16 @@
 #include "Convert.hpp"
 #include <cmath>
+#include <climits>
+#include <cctype>
 #include <cstdlib>
 #include <sstream>
 #include <iomanip>
+#include <iostream>
 
 Convert::Convert() {
 	isNAN = false;
 	isINF = false;
 	isImpossible = false;
-	printDot = true;
 }
 
 Convert::Convert(char	*origin) {
@@ -16,7 +18,6 @@ Convert::Convert(char	*origin) {
 	isNAN = false;
 	isINF = false;
 	isImpossible = false;
-	printDot = true;
 }
 
 Convert::Convert(const Convert	&convert) {
@@ -28,7 +29,6 @@ Convert::Convert(const Convert	&convert) {
 	_double = convert._double;
 	isINF = convert.isINF;
 	isImpossible = convert.isImpossible;
-	printDot = convert.printDot;
 }
 
 Convert	&Convert::operator=(const Convert	&convert) {
@@ -41,7 +41,6 @@ Convert	&Convert::operator=(const Convert	&convert) {
 	_float = convert._float;
 	isINF = convert.isINF;
 	isImpossible = convert.isImpossible;
-	printDot = convert.printDot;
 	return *this;
 }
 
