@@ -1,3 +1,4 @@
 module*/ex*/*.obj
 module*/ex*/a.out
 *.log
+*/*.json

@@ -54,6 +54,10 @@
 		"typeinfo": "cpp",
 		"variant": "cpp",
 		"cmath": "cpp",
-		"iostream": "cpp"
+		"iostream": "cpp",
+		"iterator": "cpp",
+		"list": "cpp",
+		"utility": "cpp",
+		"vector": "cpp"
 	}
 }
