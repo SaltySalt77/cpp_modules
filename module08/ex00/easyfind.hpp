@@ -4,16 +4,23 @@
 # include <iostream>
 # include <algorithm>
 
+class NoOccurrenceFound : public std::exception {
+public :
+	const char * what() const throw() ;
+};
+
 template <typename	T>
 typename T::iterator easyfind(T &container, int tofind) {
-	T<int>::iterator iter;
+	typename T::iterator iter;
+	typename T::iterator last;
 
-	iter = container.begin();
-	for (; iter != &(container.end()) ; iter++) {
-		if (*iter == tofind)
-			return iter;
-	}
-	throw /* 예외처리 */
+		iter = container.begin();
+		last = container.end();
+		for (; iter != last; iter++) {
+			if (*iter == tofind)
+				return iter;
+		}
+		throw NoOccurrenceFound();
 }
 
 #endif
