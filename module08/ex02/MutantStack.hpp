@@ -18,14 +18,6 @@ public:
 	typedef typename MutantStack<T>::stack::container_type::reverse_iterator	reverse_iterator;
 	reverse_iterator	rbegin() { return this->c.rbegin(); };
 	reverse_iterator	rend() { return this->c.rend(); };
-
-	typedef typename MutantStack<T>::stack::container_type::const_iterator	const_iterator;
-	const_iterator	cbegin() { return this->c.cbegin();};
-	const_iterator	cend() { return this->c.cend(); };
-
-	typedef typename MutantStack<T>::stack::container_type::reverse_iterator	const_reverse_iterator;
-	const_reverse_iterator	crbegin() { return this->c.crbigin(); };
-	const_reverse_iterator crend() { return this->c.crend(); };
 };
 
 template <typename T>
