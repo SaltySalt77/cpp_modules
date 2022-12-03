@@ -13,12 +13,10 @@ template <typename	T>
 typename T::iterator easyfind(T &container, int tofind) {
 	typename T::iterator iter;
 
-		iter = container.begin();
-		for (; iter != container.end(); iter++) {
-			if (*iter == tofind)
-				return iter;
-		}
+	iter = std::find(container.begin(), container.end(), tofind);
+	if (*iter != tofind)
 		throw NoOccurrenceFound();
+	return iter;
 }
 
 #endif
