@@ -12,11 +12,9 @@ public :
 template <typename	T>
 typename T::iterator easyfind(T &container, int tofind) {
 	typename T::iterator iter;
-	typename T::iterator last;
 
 		iter = container.begin();
-		last = container.end();
-		for (; iter != last; iter++) {
+		for (; iter != container.end(); iter++) {
 			if (*iter == tofind)
 				return iter;
 		}

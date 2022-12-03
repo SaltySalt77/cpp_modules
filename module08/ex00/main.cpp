@@ -16,6 +16,7 @@ int	main() {
 	srand(time(NULL));
 
 	{
+		std::cout << std::endl << "==============================" << std::endl << std::endl;
 		std::vector<int>	v;
 
 		for (int i = 0; i < 10; i++)
@@ -23,8 +24,13 @@ int	main() {
 
 		std::vector<int>::iterator	iter;
 
-		iter = v.begin;
+		iter = v.begin();
 
+		for (; iter != v.end(); iter++) {
+			std::cout << std::setw(2) << *iter;
+			std::cout << " ";
+		}
+		std::cout << std::endl;
 
 		try {
 			iter = easyfind(v, 7);
@@ -42,6 +48,16 @@ int	main() {
 
 		std::list<int>::iterator	iter;
 
+		iter = v.begin();
+
+		std::cout << std::endl << "==============================" << std::endl << std::endl;
+
+		for (; iter != v.end(); iter++) {
+			std::cout << std::setw(2) << *iter;
+			std::cout << " ";
+		}
+		std::cout << std::endl;
+
 		try {
 			iter = easyfind(v, 7);
 			std::cout << "easyfind found " << *iter << std::endl;
@@ -58,6 +74,16 @@ int	main() {
 
 		std::deque<int>::iterator	iter;
 
+		iter = v.begin();
+
+		std::cout << std::endl << "==============================" << std::endl << std::endl;
+
+		for (; iter != v.end(); iter++) {
+			std::cout << std::setw(2) << *iter;
+			std::cout << " ";
+		}
+		std::cout << std::endl;
+
 		try {
 			iter = easyfind(v, 7);
 			std::cout << "easyfind found " << *iter << std::endl;
@@ -65,6 +91,8 @@ int	main() {
 		catch (std::exception	&e) {
 			std::cerr << e.what();
 		}
+
+		std::cout << std::endl << "==============================" << std::endl << std::endl;
 	}
 	return 0;
 }
