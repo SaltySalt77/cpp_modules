@@ -15,11 +15,12 @@ public :
 	Span	&operator= (const Span	&span);
 	~Span();
 
-	void addNumber(int N);
-	void addNumber(int min, int max);
+	void	addNumber(int N);
+	void	addNumber(int min, int max);
+	void	addNumber(int	*arr, unsigned int size);
 
-	int	shortestSpan();
-	int	longestSpan();
+	long long	shortestSpan();
+	long long	longestSpan();
 
 };
 

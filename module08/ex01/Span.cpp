@@ -51,40 +51,42 @@ void	Span::addNumber(int min, int max) {
 	}
 }
 
-int	Span::shortestSpan() {
-	std::vector<int>			sorted(vec);
-	std::vector<int>::iterator	cur;
+void	Span::addNumber(int	*arr, unsigned int	size) {
 
 	try {
-		if (vec.size() < 2)
-			throw std::logic_error("Size is too small\n");
+		if (vec.size() + size >= maxSize)
+			throw std::logic_error("Already full\n");
+		vec.insert(vec.end(), arr, arr + size);
 	}
 	catch (std::exception	&e) {
 		std::cerr << e.what();
-		return -1;
+		size = maxSize - vec.size();
+		vec.insert(vec.end(), arr, arr + size);
 	}
+}
+
+long long	Span::shortestSpan() {
+	std::vector<int>			sorted(vec);
+	std::vector<int>::iterator	cur;
+
+	if (vec.size() < 2)
+		throw std::logic_error("Size is too small\n");
 	std::sort(sorted.begin(), sorted.end());
 	cur = sorted.begin();
-	int small = *(sorted.end()) - *(sorted.begin());
-	for (; cur != sorted.end(); cur++) {
-		int tmp = *(cur + 1) - *cur;
+	long long small = *(sorted.end() - 1) - *(sorted.begin());
+	for (; cur + 1 != sorted.end(); cur++) {
+		long long tmp = *(cur + 1) - *cur;
 		if (tmp < small)
 			small = tmp;
 	}
 	return small;
 }
 
-int Span::longestSpan() {
+long long Span::longestSpan() {
 	std::vector<int>			sorted(vec);
 
-	try {
-		if (vec.size() < 2)
-			throw std::logic_error("Size is too small\n");
-	}
-	catch (std::exception	&e) {
-		std::cerr << e.what();
-		return -1;
-	}
+	if (vec.size() < 2)
+		throw std::logic_error("Size is too small\n");
 	std::sort(sorted.begin(), sorted.end());
-	return *(sorted.end()) - *(sorted.begin());
+	return *(sorted.end() - 1) - *(sorted.begin());
 }

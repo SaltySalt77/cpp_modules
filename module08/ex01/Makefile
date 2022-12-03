@@ -6,7 +6,7 @@
 #    By: hyna <hyna@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 15:40:24 by hyna              #+#    #+#              #
-#    Updated: 2022/12/03 17:50:02 by hyna             ###   ########.fr        #
+#    Updated: 2022/12/04 01:43:34 by hyna             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = a.out
 CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp\
+SRCS = main.cpp Span.cpp\
 
 OBJS = $(SRCS:.cpp=.obj)
 
