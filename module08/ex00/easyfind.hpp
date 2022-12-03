@@ -14,7 +14,7 @@ typename T::iterator easyfind(T &container, int tofind) {
 	typename T::iterator iter;
 
 	iter = std::find(container.begin(), container.end(), tofind);
-	if (*iter != tofind)
+	if (iter == container.end())
 		throw NoOccurrenceFound();
 	return iter;
 }
